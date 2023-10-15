@@ -28,6 +28,32 @@ public class TemplateMethodTest {
     }
 
     /**
+     * 익명클래스 - 구체클래스 만들지 않고 사용 !
+     * */
+    @Test
+    void templateMethodV2(){
+        AbstractTemplate template1 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로직 실행 11 !!!");
+            }
+        };
+        log.info("익명클래스 이름={}",template1.getClass());
+        template1.execute();
+
+        AbstractTemplate template2 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로직 실행 22 !!!");
+            }
+        };
+        log.info("익명클래스 이름={}",template2.getClass());
+
+        template2.execute();
+
+    }
+
+    /**
      * 미적용
      * */
     private void logic1() {
